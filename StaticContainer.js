@@ -1,11 +1,7 @@
 import { Component, Children } from 'react';
 import PropTypes from 'prop-types';
 
-export default class extends Component {
-    static propTypes = {
-        shouldUpdate: PropTypes.bool.isRequired
-    };
-
+class StaticContainer extends Component {
     shouldComponentUpdate(nextProps) {
         return nextProps.shouldUpdate;
     }
@@ -15,3 +11,9 @@ export default class extends Component {
         return (child === null || child === false) ? null : Children.only(child);
     }
 }
+
+StaticContainer.propTypes = {
+    shouldUpdate: PropTypes.bool.isRequired
+};
+
+export default StaticContainer;
